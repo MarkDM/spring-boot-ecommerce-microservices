@@ -27,7 +27,7 @@ public class ProductService {
                 .price(productRequest.price())
                 .build();
         productRepository.save(product);
-        log.info("Product {} is saved", product.getId());
+        log.info("Product {} is saved", product.getName());
         return product;
     }
 

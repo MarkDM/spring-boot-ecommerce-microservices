@@ -1,11 +1,11 @@
 package com.mdm.product_service.model;
 
 
+import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("product")
+@Entity
+@Table(name = "products")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,9 +17,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Product {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
-    private String id;
+    private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(length = 1000)
     private String description;
+
+    @Column(nullable = false)
     private double price;
 }
