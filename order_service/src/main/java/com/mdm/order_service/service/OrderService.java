@@ -13,9 +13,10 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
 
-    public void placeOrder(OrderRequest request) {
+    public Order placeOrder(OrderRequest request) {
         var order = new Order();
         BeanUtils.copyProperties(request, order);
-        orderRepository.save(order);
+        order = orderRepository.save(order);
+        return order;
     }
 }

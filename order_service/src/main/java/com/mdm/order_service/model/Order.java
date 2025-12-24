@@ -11,11 +11,11 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "orders")
+@Builder
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String orderNumber;
     private String skuCode;
     private BigDecimal price;
     private int quantity;

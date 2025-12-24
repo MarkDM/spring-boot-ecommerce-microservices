@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    # Production database connection - use environment variables
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/orders_db}
+    username: ${DATABASE_USERNAME:admin}
+    password: ${DATABASE_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    # Connection pool settings for production
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    # Production: validate schema only, no SQL logging
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: false
+    open-in-view: false
+
+server:
+  port: ${SERVER_PORT:8081}
+
+# Production logging - only warnings and errors
+logging:
+  level:
+    root: INFO
+    com.mdm.order_service: INFO
+    org.hibernate.SQL: WARN
+

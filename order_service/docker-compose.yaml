@@ -19,6 +19,19 @@ services:
     networks:
       - ecommerce-microservices-network
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@email.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+        - "4040:80" # local port:container port
+    depends_on:
+      - postgres
+    networks:
+      - ecommerce-microservices-network
+
 volumes:
   postgres_data:
 

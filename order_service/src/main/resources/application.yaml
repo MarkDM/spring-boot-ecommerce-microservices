@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: order_service
+
+  profiles:
+    # Set active profile - options: dev, prod
+    # Can also be set via environment variable: SPRING_PROFILES_ACTIVE=prod
+    # Or via command line: --spring.profiles.active=prod
+    active: dev
+
+
