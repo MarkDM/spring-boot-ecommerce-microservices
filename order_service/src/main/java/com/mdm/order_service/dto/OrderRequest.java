@@ -1,9 +1,10 @@
 package com.mdm.order_service.dto;
 
+import java.math.BigDecimal;
+
 public record OrderRequest(
-        long id,
         String skuCode,
-        double price,
+        BigDecimal price,
         int quantity
 ) {
 }

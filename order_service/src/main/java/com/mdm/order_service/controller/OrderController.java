@@ -17,14 +17,14 @@ public class OrderController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public OrderResponse placeOrder(@RequestBody OrderRequest request) {
-       var orderCreated= orderService.placeOrder(request);
+        var orderCreated = orderService.placeOrder(request);
 
-       return new OrderResponse(
-               orderCreated.getId(),
-               orderCreated.getSkuCode(),
-               orderCreated.getPrice(),
-               orderCreated.getQuantity()
-       );
+        return new OrderResponse(
+                orderCreated.getId(),
+                orderCreated.getSkuCode(),
+                orderCreated.getPrice(),
+                orderCreated.getQuantity()
+        );
 
     }
 }
